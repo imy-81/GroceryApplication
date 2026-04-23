@@ -7,7 +7,7 @@
   <test thread-count="5" name="Test">
   <groups>
   <run>
-  <include name=" smoke"></include></run></groups>
+  <include name="smoke"></include></run></groups>
     <classes>
    <!-- <class name="testscript.ManageNewsTest"/>-->
      <!-- <class name="testscript.LogoutTest">-->
