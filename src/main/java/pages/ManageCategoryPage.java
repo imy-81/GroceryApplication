@@ -6,10 +6,14 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import utilities.FileUploadUtility;
+import utilities.WaitUtility;
 
 public class ManageCategoryPage {
-	@FindBy(xpath = ("//a[@href='https://groceryapp.uniqassosiates.com/admin/list-category']//child::i[@class='fas fa-arrow-circle-right']"))
-	WebElement managecategory;
+	/*
+	 * @FindBy(xpath =
+	 * ("//a[@href='https://groceryapp.uniqassosiates.com/admin/list-category']//child::i[@class='fas fa-arrow-circle-right']"
+	 * )) WebElement managecategory;
+	 */
 
 	@FindBy(xpath = ("//a[@class='btn btn-rounded btn-danger']"))
 	WebElement newbtn;
@@ -20,13 +24,6 @@ public class ManageCategoryPage {
 	@FindBy(xpath = ("//div[@class='ms-selectable']//child::span[text()='discount']"))
 	public WebElement discountgroupoption;
 
-	
-	 /* @FindBy(xpath = ("//li[@class='ms-elem-selection ms-selected ms-hover']"))
-	 * WebElement discountmoved;
-	 */
-	/*@FindBy(xpath = ("//li[@id='134-selectable']"))
-	WebElement discountoption;*/
-	
 	@FindBy(xpath = ("//input[@id='main_img']"))
 	WebElement choosefile;
 
@@ -36,43 +33,53 @@ public class ManageCategoryPage {
 	WebElement successalertmsg;
 
 	public WebDriver driver;
+	WaitUtility wait = new WaitUtility();
 
 	public ManageCategoryPage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
 
-	public void getmanageCategory() {
-		managecategory.click();
+	/*
+	 * public ManageCategoryPage getmanageCategory() { managecategory.click();
+	 * return this;
+	 * 
+	 * }
+	 */
 
-	}
-
-	public void getNewButton() {
+	public ManageCategoryPage getNewButton() {
 		newbtn.click();
+		return this;
 	}
 
-	public void getCategory(String fruit) {
+	public ManageCategoryPage getCategory(String fruit) {
+
+		wait.waitForElementToBeVisible(driver, category);
 		category.sendKeys(fruit);
+		return this;
 	}
 
-	public void getDiscountGroup() {
+	public ManageCategoryPage getDiscountGroup() {
+		wait.waitForElementToBeClickable(driver, discountgroupoption);
 		discountgroupoption.click();
+		return this;
+
 	}
 
-	public void upLoadImage(String filepath) {
-		choosefile.sendKeys(filepath);
+	public ManageCategoryPage upLoadImage(String filepath) {
+		FileUploadUtility upload = new FileUploadUtility();
+		upload.fileUploadBySendKeys(choosefile, filepath);
+		return this;
+
 	}
 
-	public void setSaveButton() {
+	public ManageCategoryPage setSaveButton() {
 		savebtn.click();
+		return this;
 	}
 
 	public boolean isSuccessMessageDisplayed() {
 		return successalertmsg.isDisplayed();
 	}
-
-	/*
-	 * public WebElement getChooseFile() { return choosefile; }
-	 */
 
 }

@@ -5,14 +5,16 @@ import java.io.IOException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import pages.HomePage;
 import pages.LoginPage;
 import pages.ManageFooterTextPage;
 import utilities.ExcelUtility;
 import utilities.FakerUtility;
 
 public class ManageFooterTextTest extends Base {
-
-	@Test
+HomePage homepage;
+ManageFooterTextPage managefooterpage;
+	@Test(description="ManageFooterText Testcase")
 	public void verifyManageFooterText() throws IOException {
 		String usernamevalue = ExcelUtility.getStringData(1, 0, "loginpage");
 
@@ -21,11 +23,11 @@ public class ManageFooterTextTest extends Base {
 		LoginPage loginpage = new LoginPage(driver);
 		loginpage.username(usernamevalue);
 		loginpage.pswrd(passwordvalue);
-		loginpage.clickOnSignin();
+		homepage=loginpage.clickOnSignin();
 
-		ManageFooterTextPage managefooterpage = new ManageFooterTextPage(driver);
+		//ManageFooterTextPage managefooterpage = new ManageFooterTextPage(driver);
 
-		managefooterpage.getManageFooter();
+		managefooterpage=homepage.clickOnManageFooter();
 
 		managefooterpage.getActionButton();
 		FakerUtility utility = new FakerUtility();

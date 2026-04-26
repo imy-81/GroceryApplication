@@ -7,12 +7,17 @@ import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import pages.HomePage;
 import pages.LoginPage;
 import utilities.ExcelUtility;
 
 public class LoginTest extends Base {
 
-	@Test(priority=1,groups= {"regression"},retryAnalyzer=retry.Retry.class)
+	HomePage homepage;
+	LoginPage loginpage;
+	
+	
+	@Test(priority=1,groups= {"regression"},retryAnalyzer=retry.Retry.class,description="Login Testcase1")
 	public void verifyTheUserIsAbleToLoginUsingValidCred() throws IOException
 	{
 		
@@ -24,9 +29,9 @@ public class LoginTest extends Base {
 		String passwordvalue=ExcelUtility.getStringData(1, 1,"loginpage");
 		
 		LoginPage loginpage=new LoginPage(driver);
-		loginpage.username(usernamevalue);
-		loginpage.pswrd(passwordvalue);
-		loginpage.clickOnSignin();
+		loginpage.username(usernamevalue).pswrd(passwordvalue);
+		//loginpage.pswrd(passwordvalue);
+		homepage=loginpage.clickOnSignin();
 		boolean homepage=loginpage.isHomePageDisplayed();
 		Assert.assertTrue(homepage);
 		
@@ -34,7 +39,7 @@ public class LoginTest extends Base {
 	}
 	
 	
-	@Test(priority=2)
+	@Test(priority=2,description="Login Testcase2")
 	public void verifyTheUserIsAbleToLoginUsingInValidPswrd() throws IOException
 	{
 		
@@ -44,13 +49,13 @@ public class LoginTest extends Base {
 		String passwordvalue=ExcelUtility.getStringData(2, 1, "loginpage");
 		
 		LoginPage loginpage=new LoginPage(driver);
-		loginpage.username(usernamevalue);
-		loginpage.pswrd(passwordvalue);
-		loginpage.clickOnSignin();
+		loginpage.username(usernamevalue).pswrd(passwordvalue);
+		//loginpage.pswrd(passwordvalue);
+		homepage=loginpage.clickOnSignin();
 		boolean alertmsg=loginpage.isAlertMsgDisplayed();
 		Assert.assertTrue(alertmsg);
 	}
-	@Test(priority=3)
+	@Test(priority=3,description="Login Testcase3")
 	
 	public void verifyTheUserIsAbleToLoginUsingInValidUser() throws IOException
 			
@@ -61,15 +66,15 @@ public class LoginTest extends Base {
 		String passwordvalue=ExcelUtility.getStringData(3, 1, "loginpage");
 		
 		LoginPage loginpage=new LoginPage(driver);
-		loginpage.username(usernamevalue);
-		loginpage.pswrd(passwordvalue);
-		loginpage.clickOnSignin();
+		loginpage.username(usernamevalue).pswrd(passwordvalue);
+		//loginpage.pswrd(passwordvalue);
+		homepage=loginpage.clickOnSignin();
 		boolean greendashboard=loginpage.isDashBoardDisplayed();
 		Assert.assertTrue(greendashboard);
 		
 			}	
 			
-@Test(priority=4)
+@Test(priority=4,description="Login Testcase4")
 	
 	public void verifyTheUserIsAbleToLoginUsingInValidBoth() throws IOException
 			
@@ -80,9 +85,9 @@ public class LoginTest extends Base {
 	String passwordvalue=ExcelUtility.getStringData(4, 1, "loginpage");
 	
 		LoginPage loginpage=new LoginPage(driver);
-		loginpage.username(usernamevalue);
-		loginpage.pswrd(passwordvalue);
-		loginpage.clickOnSignin();
+		loginpage.username(usernamevalue).pswrd(passwordvalue);
+		//loginpage.pswrd(passwordvalue);
+		homepage=loginpage.clickOnSignin();
 		boolean alertvisible = loginpage.isAlertVisibilityDisplayed();
 		Assert.assertTrue(alertvisible);
 		

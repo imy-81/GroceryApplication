@@ -32,21 +32,23 @@ public class LoginPage {
 	
 	//actions
 	
-	public void username(String usernamevalue)
+	public LoginPage username(String usernamevalue)
 	{
 		
 		username.sendKeys(usernamevalue);
+		return this;
 	}
 
-	public void pswrd(String passwordvalue)
+	public LoginPage pswrd(String passwordvalue)
 	{
 		password.sendKeys(passwordvalue);
+		return this;
 	}
 
-	public void clickOnSignin()
-	{  /*WaitUtility wait=new WaitUtility();
-	wait.waitForElementToBeClickable(driver, signin);*/
+	public HomePage clickOnSignin()
+	{  
 		signin.click();
+		return new HomePage(driver);
 		
 		
 		

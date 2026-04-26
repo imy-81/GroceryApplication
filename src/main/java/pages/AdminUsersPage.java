@@ -12,8 +12,8 @@ public class AdminUsersPage {
 
 //locators
 
-	@FindBy(xpath = ("//a[@href='https://groceryapp.uniqassosiates.com/admin/list-admin']//i[@class='fas fa-arrow-circle-right']"))
-	WebElement adminuser;
+	//@FindBy(xpath = ("//a[@href='https://groceryapp.uniqassosiates.com/admin/list-admin']//i[@class='fas fa-arrow-circle-right']"))
+	//WebElement adminuser;
 	@FindBy(xpath = ("//a[@class='btn btn-rounded btn-danger']"))
 	WebElement newbtn;
 
@@ -25,9 +25,9 @@ public class AdminUsersPage {
 	@FindBy(xpath = ("//select[@id='user_type']"))
 	WebElement selectdropdown;
 
-	/*
-	  @FindBy(xpath = ("//option[@value='staff']")) WebElement staffdropdown;
-	 */
+	
+	//  @FindBy(xpath = ("//option[@value='staff']")) WebElement staffdropdown;
+	 
 
 	// constructor
 
@@ -40,25 +40,29 @@ public class AdminUsersPage {
 	}
 	// actions
 
-	public void adminUser() {
+	/*public void clickOnAdminUserInfo() {
 		adminuser.click();
-	}
+	}*/
 
-	public void newButton() {
+	public AdminUsersPage newButton() {
 		newbtn.click();
+		return this;
 	}
 
-	public void userName(String userName) {
+	public AdminUsersPage userName(String userName) {
 		username.sendKeys(userName);
+		return this;
 	}
 
-	public void password(String pwd) {
+	public AdminUsersPage password(String pwd) {
 		pswrd.sendKeys(pwd);
+		return this;
 
 	}
 
-	public void selectDropDown() {
+	public AdminUsersPage selectDropDown() {
 		selectdropdown.click();
+		return this;
 	}
 
 	public void selectStaff(String value) {
@@ -71,8 +75,8 @@ public class AdminUsersPage {
 		return select.getFirstSelectedOption().getAttribute("value");
 	}
 
-	/*
-	 * public boolean isStaffOptionSelected() { return staffdropdown.isSelected(); }
-	 */
+	
+	 // public boolean isStaffOptionDisplayed() { return staffdropdown.isDisplayed(); }
+	 
 
 }

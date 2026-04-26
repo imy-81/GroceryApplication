@@ -7,7 +7,7 @@ public class Constant {
 	
 	public static final String APPLEIMAGE=System.getProperty("user.dir")+"\\src\\test\\resources\\pexels-senna-doe-1782113811-28486832.jpg";
 	
-	
+	public static final String CONFIGFILE=System.getProperty("user.dir")+"\\src\\main\\resources\\config.properties";
 	
 	
 	

@@ -7,9 +7,9 @@ import org.openqa.selenium.support.PageFactory;
 
 public class ManageFooterTextPage {
 
-	@FindBy(xpath = ("//a[@href='https://groceryapp.uniqassosiates.com/admin/list-footertext']//child::i[@class='fas fa-arrow-circle-right']"))
+	/*@FindBy(xpath = ("//a[@href='https://groceryapp.uniqassosiates.com/admin/list-footertext']//child::i[@class='fas fa-arrow-circle-right']"))
 
-	WebElement managefooter;
+	WebElement managefooter;*/
 
 	@FindBy(xpath = ("//a[@href=\"https://groceryapp.uniqassosiates.com/admin/Footertext/edit?edit=1\"]//child::i[@class=\"fas fa-edit\"]"))
 	WebElement actionbtn;
@@ -40,10 +40,10 @@ public class ManageFooterTextPage {
 		PageFactory.initElements(driver, this);
 	}
 
-	public void getManageFooter() {
+	/*public void clickOnManageFooter() {
 
 		managefooter.click();
-	}
+	}*/
 
 	public void getActionButton() {
 

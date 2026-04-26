@@ -25,7 +25,7 @@ public void  waitForalertIsPresent(WebDriver driver, WebElement element) {
 	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(EXPLICITWAIT));
 	wait.until(ExpectedConditions.alertIsPresent());
 }
-public void  visibilityOfallElements(WebDriver driver, WebElement element) {
+public void waitForElementToBeVisible(WebDriver driver, WebElement element) {
 	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(EXPLICITWAIT));
 	wait.until(ExpectedConditions.visibilityOfAllElements(element));
 }

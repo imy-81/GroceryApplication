@@ -6,8 +6,11 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class ManageContactPage {
-	@FindBy(xpath = ("//a[@href='https://groceryapp.uniqassosiates.com/admin/list-contact']//child::i[@class='fas fa-arrow-circle-right']"))
-	WebElement managecontact;
+	/*
+	 * @FindBy(xpath =
+	 * ("//a[@href='https://groceryapp.uniqassosiates.com/admin/list-contact']//child::i[@class='fas fa-arrow-circle-right']"
+	 * )) WebElement managecontact;
+	 */
 	@FindBy(xpath = ("//i[@class='fas fa-edit']"))
 	WebElement actionbtn;
 
@@ -26,8 +29,7 @@ public class ManageContactPage {
 	WebElement updatemsg;
 	@FindBy(xpath = ("//div[@class='alert alert-success alert-dismissible']"))
 	WebElement alertupdatedmsg;
-	
-	
+
 	// constructor
 	public WebDriver driver;
 
@@ -37,36 +39,52 @@ public class ManageContactPage {
 	}
 	// actions
 
-	public void getManageContact() {
-		managecontact.click();}
-	public void getActionButton() {
-		actionbtn.click();}
-	public void getPhoneNumber(String number) {
+	/*
+	 * public void getManageContact() { managecontact.click();}
+	 */
+	public ManageContactPage getActionButton() {
+		actionbtn.click();
+		return this;
+	}
+
+	public ManageContactPage getPhoneNumber(String number) {
 		phonenumber.clear();
 		phonenumber.sendKeys(number);
+		return this;
 	}
-	public void getEmailMsg(String email) {
+
+	public ManageContactPage getEmailMsg(String email) {
 		emailmsg.clear();
-		emailmsg.sendKeys(email);}
-	public void getTextArea(String message) {
+		emailmsg.sendKeys(email);
+		return this;
+	}
+
+	public ManageContactPage getTextArea(String message) {
 		textarea.clear();
 		textarea.sendKeys(message);
+		return this;
 	}
-	public void getDeliveryTime(String time) {
+
+	public ManageContactPage getDeliveryTime(String time) {
 		deliverytime.clear();
 		deliverytime.sendKeys(time);
+		return this;
 	}
-	public void getDeliveryCharge(String charge) {
+
+	public ManageContactPage getDeliveryCharge(String charge) {
 		deliverycharge.clear();
 		deliverycharge.sendKeys(charge);
+		return this;
 	}
-	public void getUpdateMsg()  {
+
+	public ManageContactPage clickUpdateMsg() {
 		updatemsg.click();
+		return this;
 	}
-	public boolean  isAlertUpdateMsgdisplayed() {
+
+	public boolean isAlertUpdateMsgdisplayed() {
 		return alertupdatedmsg.isDisplayed();
-	
-		
+
 	}
 
 }

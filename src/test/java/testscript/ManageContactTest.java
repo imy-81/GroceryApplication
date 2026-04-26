@@ -5,14 +5,17 @@ import java.io.IOException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import pages.HomePage;
 import pages.LoginPage;
 import pages.ManageContactPage;
 import utilities.ExcelUtility;
 import utilities.FakerUtility;
 
 public class ManageContactTest extends Base {
+	HomePage homepage;
+	ManageContactPage managecontact;
 
-	@Test
+	@Test(description = "ManageContact Testcase")
 	public void verifyManageContact() throws IOException {
 		String usernamevalue = ExcelUtility.getStringData(1, 0, "loginpage");
 
@@ -21,10 +24,11 @@ public class ManageContactTest extends Base {
 		LoginPage loginpage = new LoginPage(driver);
 		loginpage.username(usernamevalue);
 		loginpage.pswrd(passwordvalue);
-		loginpage.clickOnSignin();
+		homepage = loginpage.clickOnSignin();
 
-		ManageContactPage managecontact = new ManageContactPage(driver);
-		managecontact.getManageContact();
+		// ManageContactPage managecontact = new ManageContactPage(driver);
+		
+		managecontact = homepage.clickOnManageContact();
 		managecontact.getActionButton();
 		FakerUtility utility = new FakerUtility();
 		String phonenumber = utility.generatePhoneNumber();
@@ -33,9 +37,12 @@ public class ManageContactTest extends Base {
 		managecontact.getEmailMsg(email);
 		String address = utility.generateAddress();
 		managecontact.getTextArea(address);
-		managecontact.getDeliveryTime("10 AM - 8 PM");
-		managecontact.getDeliveryCharge("$50");
-		managecontact.getUpdateMsg();
+		String deliverytime = ExcelUtility.getStringData(1, 0, "managecontact");
+		managecontact.getDeliveryTime(deliverytime);
+
+		String deliverycharge = ExcelUtility.getIntegerData(1, 1, "managecontact");
+		managecontact.getDeliveryCharge(deliverycharge);
+		managecontact.clickUpdateMsg();
 		boolean alertupdatedmsg = managecontact.isAlertUpdateMsgdisplayed();
 		Assert.assertTrue(alertupdatedmsg);
 

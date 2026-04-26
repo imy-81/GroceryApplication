@@ -12,7 +12,7 @@ import utilities.FakerUtility;
 
 public class ManageNewsTest extends Base {
 
-	@Test
+	@Test(description=" Managenews TestCase")
 	
 	public void verifyManageNewsTest() throws IOException
 	

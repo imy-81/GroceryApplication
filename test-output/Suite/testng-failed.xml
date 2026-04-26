@@ -4,13 +4,13 @@
   <parameter name="browser" value="chrome"/>
   <test thread-count="5" name="Test(failed)">
     <classes>
-      <class name="testscript.ManageCategoryTest">
+      <class name="testscript.ManageContactTest">
         <methods>
+          <include name="verifyManageContact"/>
           <include name="browserinitialization"/>
           <include name="browserCloseAndQuit"/>
-          <include name="verifyUploadFile"/>
         </methods>
-      </class> <!-- testscript.ManageCategoryTest -->
+      </class> <!-- testscript.ManageContactTest -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->
