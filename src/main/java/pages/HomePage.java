@@ -16,11 +16,6 @@ public class HomePage {
 
 	// locators
 
-	// @FindBy(xpath = "//p[contains(text(),'Settings')]")
-	/*
-	 * @FindBy(xpath="//title[text()='Login | 7rmart supermarket']") WebElement
-	 * logintitle;
-	 */
 	@FindBy(xpath = "//a[@data-toggle='dropdown']")
 
 	WebElement btndropdown;
@@ -28,8 +23,8 @@ public class HomePage {
 	@FindBy(xpath = "//a[@class='dropdown-item'][normalize-space()='Logout']")
 	WebElement logoutbtn;
 
-	@FindBy(xpath = "//button[@type='submit']")
-	WebElement signinbtn;
+	@FindBy(xpath = "//p[text()='Dashboard']")
+	WebElement dashboardHeader;
 
 	@FindBy(xpath = ("//a[@href='https://groceryapp.uniqassosiates.com/admin/list-admin']//i[@class='fas fa-arrow-circle-right']"))
 	WebElement adminuser;
@@ -40,7 +35,8 @@ public class HomePage {
 	@FindBy(xpath = ("//a[@href='https://groceryapp.uniqassosiates.com/admin/list-footertext']//child::i[@class='fas fa-arrow-circle-right']"))
 
 	WebElement managefooter;
-
+	@FindBy(xpath = "//p[text()='Dashboard']")
+	WebElement dashboard;
 	public WebDriver driver;
 	WaitUtility waitutil = new WaitUtility();
 
@@ -77,31 +73,23 @@ public class HomePage {
 	}
 
 	public HomePage dropdown() {
-		waitutil.waitForElementToBeClickable(driver, btndropdown); // Ensure it's ready
-
+		waitutil.waitForElementToBeClickable(driver, btndropdown);
 		btndropdown.click();
 		return this;
-
 	}
 
-	/*
-	 * public LoginPage clickLogout()
-	 * 
-	 * {
-	 * 
-	 * logoutbtn.click();
-	 * 
-	 * return new LoginPage(driver); }
-	 */
-
-	public HomePage clickLogOut() {
-		logoutbtn.click();
-		return this;
+	public LoginPage clickLogOut() {
+		waitutil.waitForElementToBeVisible(driver, logoutbtn); 
+	    logoutbtn.click();
+		
+		return new LoginPage(driver); // Landing back on Login page
 	}
 
-	public boolean isSignInBtnVisible() {
-		waitutil.waitForElementToBeVisible(driver, signinbtn);
-		return signinbtn.isDisplayed();
+	
+
+	public boolean isDashboardVisible() {
+		waitutil.waitForElementToBeVisible(driver, dashboardHeader);
+		return dashboardHeader.isDisplayed();
 	}
 
 }

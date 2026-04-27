@@ -41,7 +41,7 @@ ManageCategoryPage managecategory;
 		managecategory.upLoadImage(Constant.APPLEIMAGE);
 		managecategory.setSaveButton();*/
 		boolean successalertmsg = managecategory.isSuccessMessageDisplayed();
-		Assert.assertTrue(successalertmsg);
+		Assert.assertTrue(successalertmsg,Constant.MANAGECATEGORYFAIL);
 
 		
 		 /* FileUploadUtility upload=new FileUploadUtility();

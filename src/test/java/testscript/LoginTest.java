@@ -7,6 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import constant.Constant;
 import pages.HomePage;
 import pages.LoginPage;
 import utilities.ExcelUtility;
@@ -33,7 +34,7 @@ public class LoginTest extends Base {
 		//loginpage.pswrd(passwordvalue);
 		homepage=loginpage.clickOnSignin();
 		boolean homepage=loginpage.isHomePageDisplayed();
-		Assert.assertTrue(homepage);
+		Assert.assertTrue(homepage,Constant.VALIDCRED);
 		
 		
 	}
@@ -53,7 +54,7 @@ public class LoginTest extends Base {
 		//loginpage.pswrd(passwordvalue);
 		homepage=loginpage.clickOnSignin();
 		boolean alertmsg=loginpage.isAlertMsgDisplayed();
-		Assert.assertTrue(alertmsg);
+		Assert.assertTrue(alertmsg,Constant.INVALIDCRED);
 	}
 	@Test(priority=3,description="Login Testcase3")
 	
@@ -70,7 +71,7 @@ public class LoginTest extends Base {
 		//loginpage.pswrd(passwordvalue);
 		homepage=loginpage.clickOnSignin();
 		boolean greendashboard=loginpage.isDashBoardDisplayed();
-		Assert.assertTrue(greendashboard);
+		Assert.assertTrue(greendashboard,Constant.INVALIDCRED);
 		
 			}	
 			
@@ -89,7 +90,7 @@ public class LoginTest extends Base {
 		//loginpage.pswrd(passwordvalue);
 		homepage=loginpage.clickOnSignin();
 		boolean alertvisible = loginpage.isAlertVisibilityDisplayed();
-		Assert.assertTrue(alertvisible);
+		Assert.assertTrue(alertvisible,Constant.INVALIDCRED);
 		
 			}	
 

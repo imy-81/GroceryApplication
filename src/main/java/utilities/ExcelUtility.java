@@ -12,29 +12,30 @@ import constant.Constant;
 
 public class ExcelUtility {
 
-	static FileInputStream f;
+	/*static FileInputStream f;
     static XSSFWorkbook wb;
-    static XSSFSheet sh;
+    static XSSFSheet sh;*/
 
     public static String getStringData(int a, int b,String sheet) throws IOException {
-        f = new FileInputStream(Constant.TESTDATAFILE);//to read
-        wb = new XSSFWorkbook(f);//apache poi inbuilt class to read data from workbook
-        sh = wb.getSheet(sheet);//get value from the sheet
+    	FileInputStream    f = new FileInputStream(Constant.TESTDATAFILE);//to read
+    	XSSFWorkbook   wb = new XSSFWorkbook(f);//apache poi inbuilt class to read data from workbook
+    	XSSFSheet   sh = wb.getSheet(sheet);//get value from the sheet
         XSSFRow r = sh.getRow(a);
         XSSFCell c = r.getCell(b);
         return c.getStringCellValue();
     }
 
     public static String getIntegerData(int a, int b,String sheet) throws IOException {
-        f = new FileInputStream(Constant.TESTDATAFILE);
-        wb = new XSSFWorkbook(f);
-        sh = wb.getSheet(sheet);
+    	FileInputStream   f = new FileInputStream(Constant.TESTDATAFILE);
+    	XSSFWorkbook  wb = new XSSFWorkbook(f);
+    	XSSFSheet  sh = wb.getSheet(sheet);
         XSSFRow r = sh.getRow(a);
         XSSFCell c = r.getCell(b);
         int x = (int) c.getNumericCellValue(); // type casting double to int
         return String.valueOf(x); // conversion to string
+        
     }
 	
-	
+   
 	
 }

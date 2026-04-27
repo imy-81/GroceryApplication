@@ -2,15 +2,18 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
   <parameter name="browser" value="chrome"/>
+  <listeners>
+    <listener class-name="generateReport.Listeners"/>
+  </listeners>
   <test thread-count="5" name="Test(failed)">
     <classes>
-      <class name="testscript.ManageContactTest">
+      <class name="testscript.ManageFooterTextTest">
         <methods>
-          <include name="verifyManageContact"/>
           <include name="browserinitialization"/>
-          <include name="browserCloseAndQuit"/>
+          <include name="browserQuit"/>
+          <include name="verifyManageFooterText"/>
         </methods>
-      </class> <!-- testscript.ManageContactTest -->
+      </class> <!-- testscript.ManageFooterTextTest -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

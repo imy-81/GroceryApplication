@@ -45,28 +45,33 @@ public class ManageFooterTextPage {
 		managefooter.click();
 	}*/
 
-	public void getActionButton() {
+	public ManageFooterTextPage getActionButton() {
 
 		actionbtn.click();
+		return this;
 	}
 
-	public void getAddressInput(String address) {
+	public ManageFooterTextPage getAddressInput(String address) {
 		addressinput.clear();
 		addressinput.sendKeys(address);
+		return this;
 	}
 
-	public void getEmailInput(String emailid) {
+	public ManageFooterTextPage getEmailInput(String emailid) {
 		emailinput.clear();
 		emailinput.sendKeys(emailid);
+		return this;
 	}
 
-	public void getPhoneInput(String number) {
+	public ManageFooterTextPage getPhoneInput(String number) {
 		phoneinput.clear();
 		phoneinput.sendKeys(number);
+		return this;
 	}
 
-	public void getUpdateButton() {
+	public ManageFooterTextPage getUpdateButton() {
 		updatebtn.click();
+		return this;
 	}
 
 	public boolean isSuccessMsgDisplayed() {

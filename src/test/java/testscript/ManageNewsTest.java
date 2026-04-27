@@ -5,6 +5,7 @@ import java.io.IOException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import constant.Constant;
 import pages.LoginPage;
 import pages.ManageNewsPage;
 import utilities.ExcelUtility;
@@ -36,7 +37,7 @@ public class ManageNewsTest extends Base {
 		managenew.saveButton();
 		
 		boolean message= managenew.isSuccessMsgDisplayed();
-		Assert.assertTrue(message);
+		Assert.assertTrue(message,Constant.NEWSFAILED);
 		
 	/*	FakerUtility utility=new FakerUtility();
 		String username=utility.createRandomFirstName();*/
