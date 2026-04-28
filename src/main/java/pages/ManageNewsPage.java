@@ -35,24 +35,28 @@ public class ManageNewsPage {
 
 	// actions
 
-	public void manageMessage() {
+	public ManageNewsPage manageMessage() {
 		managemsg.click();
+		return this;
 	}
 
-	public void newMessage()
+	public ManageNewsPage newMessage()
 
 	{
 		newsmsg.click();
+		return this;
 	}
 
-	public void messageText(String newsvalue)
+	public ManageNewsPage messageText(String newsvalue)
 
 	{
 		textmsg.sendKeys(newsvalue);
+		return this;
 	}
 
-	public void saveButton() {
+	public ManageNewsPage saveButton() {
 		savebtn.click();
+		return this;
 	}
 
 	public boolean isSuccessMsgDisplayed() {

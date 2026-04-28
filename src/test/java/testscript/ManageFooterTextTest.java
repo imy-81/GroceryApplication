@@ -34,6 +34,7 @@ public class ManageFooterTextTest extends Base {
 
 		managefooterpage.getActionButton().getAddressInput(utility.generateAddress())
 				.getEmailInput(utility.generateEmail()).getPhoneInput(utility.generatePhoneNumber()).getUpdateButton();
+		
 		boolean successalertmsg = managefooterpage.isSuccessMsgDisplayed();
 		Assert.assertTrue(successalertmsg,Constant.SUCCESSMSGNOTDISPLAYED);
 

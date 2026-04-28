@@ -31,9 +31,29 @@ public class ManageContactTest extends Base {
 		
 		managecontact = homepage.clickOnManageContact();
 		managecontact.getActionButton();
+		
 		FakerUtility utility = new FakerUtility();
 		String phonenumber = utility.generatePhoneNumber();
-		managecontact.getPhoneNumber(phonenumber);
+		String email = utility.generateEmail();
+		String address = utility.generateAddress();
+		String deliverytime = ExcelUtility.getStringData(1, 0, "managecontact");
+		String deliverycharge = ExcelUtility.getIntegerData(1, 1, "managecontact");
+		managecontact = loginpage.username(usernamevalue)
+                .pswrd(passwordvalue)
+                .clickOnSignin()
+                .clickOnManageContact()
+                .getActionButton()
+                .getPhoneNumber(phonenumber)
+                .getEmailMsg(email)
+                .getTextArea(address)
+                .getDeliveryTime(deliverytime)
+                .getDeliveryCharge(deliverycharge)
+                .clickUpdateMsg();
+		
+		boolean alertupdatedmsg = managecontact.isAlertUpdateMsgdisplayed();
+		Assert.assertTrue(alertupdatedmsg,Constant.MANAGECONTACTFAIL);
+		
+		/*managecontact.getPhoneNumber(phonenumber);
 		String email = utility.generateEmail();
 		managecontact.getEmailMsg(email);
 		String address = utility.generateAddress();
@@ -43,9 +63,8 @@ public class ManageContactTest extends Base {
 
 		String deliverycharge = ExcelUtility.getIntegerData(1, 1, "managecontact");
 		managecontact.getDeliveryCharge(deliverycharge);
-		managecontact.clickUpdateMsg();
-		boolean alertupdatedmsg = managecontact.isAlertUpdateMsgdisplayed();
-		Assert.assertTrue(alertupdatedmsg,Constant.MANAGECONTACTFAIL);
+		managecontact.clickUpdateMsg();*/
+		
 
 	}
 

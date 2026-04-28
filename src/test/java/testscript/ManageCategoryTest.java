@@ -36,12 +36,12 @@ ManageCategoryPage managecategory;
 		String category=ExcelUtility.getStringData(1, 0, "managecategory");
 		managecategory.getCategory(category).getDiscountGroup().upLoadImage(Constant.APPLEIMAGE).setSaveButton();
 		
+		boolean successalertmsg = managecategory.isSuccessMessageDisplayed();
+		Assert.assertTrue(successalertmsg,Constant.MANAGECATEGORYFAIL);
 		
 		/*managecategory.getDiscountGroup();
 		managecategory.upLoadImage(Constant.APPLEIMAGE);
-		managecategory.setSaveButton();*/
-		boolean successalertmsg = managecategory.isSuccessMessageDisplayed();
-		Assert.assertTrue(successalertmsg,Constant.MANAGECATEGORYFAIL);
+		managecategory.setSaveButton();
 
 		
 		 /* FileUploadUtility upload=new FileUploadUtility();
