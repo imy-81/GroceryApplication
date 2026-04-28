@@ -1,9 +1,12 @@
 package pages;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+
+import utilities.WaitUtility;
 
 public class ManageContactPage {
 	/*
@@ -25,23 +28,26 @@ public class ManageContactPage {
 	WebElement deliverytime;
 	@FindBy(xpath = ("//input[@id='del_limit']"))
 	WebElement deliverycharge;
-	@FindBy(xpath = ("//button[@name='Update']"))
+	/*@FindBy(xpath = ("//button[@name='Update']"))
+	WebElement updatemsg;*/
+	
+	
+	@FindBy(xpath = "//button[@type='submit' and contains(@class,'btn-info')]//child::i")
 	WebElement updatemsg;
-	@FindBy(xpath = ("//div[@class='alert alert-success alert-dismissible']"))
+	/*@FindBy(xpath = ("//div[@class='alert alert-success alert-dismissible']"))
+	WebElement alertupdatedmsg;*/
+	@FindBy(xpath = "//div[contains(@class,'alert-success')]")
 	WebElement alertupdatedmsg;
-
-	// constructor
+	
 	public WebDriver driver;
-
+WaitUtility wait=new WaitUtility();
+//constructor
 	public ManageContactPage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
 	// actions
 
-	/*
-	 * public void getManageContact() { managecontact.click();}
-	 */
 	public ManageContactPage getActionButton() {
 		actionbtn.click();
 		return this;
@@ -77,12 +83,20 @@ public class ManageContactPage {
 		return this;
 	}
 
-	public ManageContactPage clickUpdateMsg() {
+	/*public ManageContactPage clickUpdateMsg() {
 		updatemsg.click();
 		return this;
+	}*/
+	
+	public ManageContactPage clickUpdateMsg() {
+		wait.waitForElementToBeClickable(driver,updatemsg);
+	    JavascriptExecutor js = (JavascriptExecutor) driver;
+	    js.executeScript("arguments[0].click();", updatemsg);
+	    return this;
 	}
 
 	public boolean isAlertUpdateMsgdisplayed() {
+		wait.waitForElementToBeVisible(driver, alertupdatedmsg);
 		return alertupdatedmsg.isDisplayed();
 
 	}
