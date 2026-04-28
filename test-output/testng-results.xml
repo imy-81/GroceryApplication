@@ -1,13 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-04-27T22:44:25 EDT" name="Suite" finished-at="2026-04-27T22:44:34 EDT" duration-ms="9069">
+  <suite started-at="2026-04-28T15:49:03 EDT" name="multibrowsertesting" finished-at="2026-04-28T15:49:16 EDT" duration-ms="13473">
     <groups>
+      <group name="smoke">
+        <method signature="ManageCategoryTest.verifyUploadFile()[pri:0, instance:testscript.ManageCategoryTest@776aec5c]" name="verifyUploadFile" class="testscript.ManageCategoryTest"/>
+      </group> <!-- smoke -->
     </groups>
-    <test started-at="2026-04-27T22:44:25 EDT" name="Test" finished-at="2026-04-27T22:44:34 EDT" duration-ms="9069">
-      <class name="testscript.ManageContactTest">
-        <test-method is-config="true" signature="browserinitialization(java.lang.String)[pri:0, instance:testscript.ManageContactTest@f58853c]" started-at="2026-04-27T22:44:25 EDT" name="browserinitialization" finished-at="2026-04-27T22:44:29 EDT" duration-ms="4142" status="PASS">
+    <test started-at="2026-04-28T15:49:03 EDT" name="Edge Test" finished-at="2026-04-28T15:49:14 EDT" duration-ms="11246">
+      <class name="testscript.ManageFooterTextTest">
+        <test-method is-config="true" signature="browserinitialization(java.lang.String)[pri:0, instance:testscript.ManageFooterTextTest@69453e37]" started-at="2026-04-28T15:49:03 EDT" name="browserinitialization" finished-at="2026-04-28T15:49:07 EDT" duration-ms="4824" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Edge]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- browserinitialization -->
+        <test-method signature="verifyManageFooterText()[pri:0, instance:testscript.ManageFooterTextTest@69453e37]" started-at="2026-04-28T15:49:07 EDT" name="verifyManageFooterText" description="ManageFooterText Testcase" finished-at="2026-04-28T15:49:14 EDT" duration-ms="6357" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyManageFooterText -->
+        <test-method is-config="true" signature="browserQuit(org.testng.ITestResult)[pri:0, instance:testscript.ManageFooterTextTest@69453e37]" started-at="2026-04-28T15:49:14 EDT" name="browserQuit" finished-at="2026-04-28T15:49:14 EDT" duration-ms="2" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=verifyManageFooterText status=SUCCESS method=ManageFooterTextTest.verifyManageFooterText()[pri:0, instance:testscript.ManageFooterTextTest@69453e37] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- browserQuit -->
+      </class> <!-- testscript.ManageFooterTextTest -->
+    </test> <!-- Edge Test -->
+    <test started-at="2026-04-28T15:49:03 EDT" name="Chrome Test" finished-at="2026-04-28T15:49:16 EDT" duration-ms="13473">
+      <class name="testscript.ManageCategoryTest">
+        <test-method is-config="true" signature="browserinitialization(java.lang.String)[pri:0, instance:testscript.ManageCategoryTest@776aec5c]" started-at="2026-04-28T15:49:03 EDT" name="browserinitialization" finished-at="2026-04-28T15:49:08 EDT" duration-ms="4861" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -18,22 +51,22 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- browserinitialization -->
-        <test-method signature="verifyManageContact()[pri:0, instance:testscript.ManageContactTest@f58853c]" started-at="2026-04-27T22:44:29 EDT" name="verifyManageContact" description="ManageContact Testcase" finished-at="2026-04-27T22:44:34 EDT" duration-ms="4868" status="PASS">
+        <test-method signature="verifyUploadFile()[pri:0, instance:testscript.ManageCategoryTest@776aec5c]" started-at="2026-04-28T15:49:08 EDT" name="verifyUploadFile" description="Managecategory Testcase" finished-at="2026-04-28T15:49:16 EDT" duration-ms="8549" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyManageContact -->
-        <test-method is-config="true" signature="browserQuit(org.testng.ITestResult)[pri:0, instance:testscript.ManageContactTest@f58853c]" started-at="2026-04-27T22:44:34 EDT" name="browserQuit" finished-at="2026-04-27T22:44:34 EDT" duration-ms="2" status="PASS">
+        </test-method> <!-- verifyUploadFile -->
+        <test-method is-config="true" signature="browserQuit(org.testng.ITestResult)[pri:0, instance:testscript.ManageCategoryTest@776aec5c]" started-at="2026-04-28T15:49:16 EDT" name="browserQuit" finished-at="2026-04-28T15:49:16 EDT" duration-ms="1" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=verifyManageContact status=SUCCESS method=ManageContactTest.verifyManageContact()[pri:0, instance:testscript.ManageContactTest@f58853c] output={null}]]]>
+                <![CDATA[[TestResult name=verifyUploadFile status=SUCCESS method=ManageCategoryTest.verifyUploadFile()[pri:0, instance:testscript.ManageCategoryTest@776aec5c] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- browserQuit -->
-      </class> <!-- testscript.ManageContactTest -->
-    </test> <!-- Test -->
-  </suite> <!-- Suite -->
+      </class> <!-- testscript.ManageCategoryTest -->
+    </test> <!-- Chrome Test -->
+  </suite> <!-- multibrowsertesting -->
 </testng-results>
