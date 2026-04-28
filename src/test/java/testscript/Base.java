@@ -82,8 +82,7 @@ public class Base {
 	public void browserQuit(ITestResult iTestResult) throws IOException {
 		if (iTestResult.getStatus() == ITestResult.FAILURE) {
 			ScreenShotUtility scrShot = new ScreenShotUtility(); // creating obj
-			scrShot.getScreenShot(driver, iTestResult.getName());
+			scrShot.getScreenShot(driver, iTestResult.getName());//retrive the name of the testcase
 		}
 
-	}
-}
+	} }//getstatus is a method to get the status of test execution,if its failed it creates new instance of Screenshotutility

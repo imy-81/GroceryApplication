@@ -14,30 +14,33 @@ public class ScreenShotUtility {
 
 	
 	public void getScreenShot(WebDriver driver, String failedTestCase) throws IOException {
-		//convert webdriver to screenshot mode.selenium webdriver cannot take screeenshot.so we typecast into screenshot
 		
 		
-		TakesScreenshot scrShot = (TakesScreenshot) driver; // TakesScreenshot capture the current situation of the
-															// browser
-		File screenShot = scrShot.getScreenshotAs(OutputType.FILE);//capture the screenshot.it stored temporarily as a file
+		//convert webdriver to screenshot mode.selenium webdriver cannot take screeenshots directly.so we typecast into screenshot 
+		TakesScreenshot scrShot = (TakesScreenshot) driver; //takesscreenshot is an interface
+		File screenShot = scrShot.getScreenshotAs(OutputType.FILE);//capture the screenshot and stores it temporarily as a  file
 		
 		
-		//create date and time
+		// to create date and time
 		String timeStamp = new SimpleDateFormat("dd_MM_yyyy_hh_mm_ss").format(new Date());
 		
 		//
 		
-		File f1 = new File(System.getProperty("user.dir") + "//outputScreenShot"); //// OutputScreenShot"-the scrrenshot
-																					//// is generated in this folder ie
-																					//// the loctn only
+		File f1 = new File(System.getProperty("user.dir") + "//outputScreenShot"); //location
 		if (!f1.exists()) {
-			f1.mkdirs(); // create a folder if it  doesnot exists
+			f1.mkdirs(); // to create a folder if it  doesnot exists
 		}
 		String destination = System.getProperty("user.dir") + "//outputScreenShot//" + failedTestCase + timeStamp
 				+ ".png";//decide final screenshot path
+		
+		//copy the screenshot to the final destination
+		
 		File finalDestination = new File(destination);
-		FileHandler.copy(screenShot, finalDestination); // FileHandler-class 
-		//used to copy the final destination,screenshot was temporarily and now saved permantely in the folder
+		FileHandler.copy(screenShot, finalDestination); 
+		
+		// FileHandler-class and copy  used to move from one location to another location
+		//inside the copy(we have to add temporaryscreenshot(ie,screenshot) and final destination)
+		//earlier it was temporary and  now saved as permantely in the folder
 		
 	}
 	
