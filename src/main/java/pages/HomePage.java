@@ -35,6 +35,9 @@ public class HomePage {
 	@FindBy(xpath = ("//a[@href='https://groceryapp.uniqassosiates.com/admin/list-footertext']//child::i[@class='fas fa-arrow-circle-right']"))
 
 	WebElement managefooter;
+	
+	@FindBy(xpath = "//p[contains(text(),'Manage News')]/ancestor::div[contains(@class,'small-box')]//a")
+	WebElement managemsg;
 	@FindBy(xpath = "//p[text()='Dashboard']")
 	WebElement dashboard;
 	public WebDriver driver;
@@ -70,6 +73,12 @@ public class HomePage {
 
 		managefooter.click();
 		return new ManageFooterTextPage(driver);
+	}
+
+	
+	public ManageNewsPage clickOnManageMessage() {
+		managemsg.click();
+		return new ManageNewsPage(driver);
 	}
 
 	public HomePage dropdown() {

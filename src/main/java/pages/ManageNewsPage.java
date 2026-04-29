@@ -9,8 +9,8 @@ public class ManageNewsPage {
 
 	// locators
 
-	@FindBy(xpath = "//p[contains(text(),'Manage News')]/ancestor::div[contains(@class,'small-box')]//a")
-	WebElement managemsg;
+	/*@FindBy(xpath = "//p[contains(text(),'Manage News')]/ancestor::div[contains(@class,'small-box')]//a")
+	WebElement managemsg;*/
 
 	@FindBy(xpath = "//a[@class='btn btn-rounded btn-danger']")
 	WebElement newsmsg;
@@ -35,10 +35,10 @@ public class ManageNewsPage {
 
 	// actions
 
-	public ManageNewsPage manageMessage() {
+	/*public ManageNewsPage clickOnManageMessage() {
 		managemsg.click();
 		return this;
-	}
+	}*/
 
 	public ManageNewsPage newMessage()
 

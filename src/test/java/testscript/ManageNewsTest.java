@@ -33,7 +33,8 @@ public class ManageNewsTest extends Base {
 
 		String newsContent = ExcelUtility.getStringData(0, 0, "managenews");
 		// ManageNewsPage managenew = new ManageNewsPage(driver);
-		managenew.manageMessage().newMessage().messageText(newsContent).saveButton();
+		
+		managenew=homepage.clickOnManageMessage().newMessage().messageText(newsContent).saveButton();
 
 		boolean message = managenew.isSuccessMsgDisplayed();
 		Assert.assertTrue(message, Constant.NEWSFAILED);
