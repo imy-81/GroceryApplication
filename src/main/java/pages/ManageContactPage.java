@@ -83,17 +83,12 @@ WaitUtility wait=new WaitUtility();
 		return this;
 	}
 
-	/*public ManageContactPage clickUpdateMsg() {
+	public ManageContactPage clickUpdateMsg() {
 		updatemsg.click();
 		return this;
-	}*/
-	
-	public ManageContactPage clickUpdateMsg() {
-		wait.waitForElementToBeClickable(driver,updatemsg);
-	    JavascriptExecutor js = (JavascriptExecutor) driver;
-	    js.executeScript("arguments[0].click();", updatemsg);
-	    return this;
 	}
+	
+	
 
 	public boolean isAlertUpdateMsgdisplayed() {
 		wait.waitForElementToBeVisible(driver, alertupdatedmsg);
